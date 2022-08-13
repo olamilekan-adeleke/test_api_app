@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:http/http.dart' as http;
 
 class AuthRepository {
-  static const String _baseUrl = 'localhost:5000';
+  static const String _baseUrl = 'http://192.168.0.103:5000';
 
   Future<Map<String, dynamic>> login({
     required String email,
@@ -23,7 +23,7 @@ class AuthRepository {
       final http.Response response = await http.post(
         Uri.parse('$_baseUrl/auth/login'),
         headers: header,
-        body: body,
+        body: json.encode(body),
       );
 
       final Map<String, dynamic> data = json.decode(response.body);
@@ -64,7 +64,7 @@ class AuthRepository {
     final http.Response response = await http.post(
       Uri.parse('$_baseUrl/auth/signUp'),
       headers: header,
-      body: body,
+      body: json.encode(body),
     );
 
     final Map<String, dynamic> data = json.decode(response.body);

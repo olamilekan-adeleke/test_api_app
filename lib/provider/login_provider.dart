@@ -35,6 +35,7 @@ class LoginProvider extends ChangeNotifier {
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          backgroundColor: Colors.green,
           content: Text('User Login Successfully!'),
         ),
       );
@@ -50,6 +51,7 @@ class LoginProvider extends ChangeNotifier {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.red,
           content: Text(e.toString()),
         ),
       );

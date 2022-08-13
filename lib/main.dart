@@ -16,8 +16,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<LoginProvider>(create: (context) => LoginProvider()),
-        Provider<SignUpProvider>(create: (context) => SignUpProvider()),
+        ChangeNotifierProvider<LoginProvider>(
+          create: (context) => LoginProvider(),
+        ),
+        ChangeNotifierProvider<SignUpProvider>(
+          create: (context) => SignUpProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'API Test',

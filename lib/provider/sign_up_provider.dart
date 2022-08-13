@@ -41,6 +41,7 @@ class SignUpProvider extends ChangeNotifier {
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          backgroundColor: Colors.green,
           content: Text('User Registered Successfully!'),
         ),
       );
@@ -54,6 +55,7 @@ class SignUpProvider extends ChangeNotifier {
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          backgroundColor: Colors.red,
           content: Text(e.toString()),
         ),
       );
