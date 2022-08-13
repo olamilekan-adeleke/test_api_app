@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../enums.dart';
 import '../provider/sign_up_provider.dart';
 import 'login_screen.dart';
 
@@ -65,6 +66,10 @@ class SignUpScreen extends StatelessWidget {
               height: 40,
               child: Consumer<SignUpProvider>(
                 builder: (context, SignUpProvider signUpProvider, child) {
+                  if (signUpProvider.signUpstate == StateEnum.loading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
                   return TextButton(
                     onPressed: () {
                       // call sign up functions
@@ -88,6 +93,7 @@ class SignUpScreen extends StatelessWidget {
                 },
               ),
             ),
+            const SizedBox(height: 10),
             InkWell(
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -105,7 +111,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 30),
           ],
         ),
       ),

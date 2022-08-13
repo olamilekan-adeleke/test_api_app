@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../enums.dart';
 import '../provider/login_provider.dart';
 import 'sign_up_screen.dart';
 
@@ -42,23 +43,31 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 40,
-              child: TextButton(
-                onPressed: () {
-                  // call login function
-                  //
-                  context.read<LoginProvider>().login(
-                        context: context,
-                        email: emailEditingController.text,
-                        password: passwordEditingController.text,
-                      );
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                ),
-                child:
-                    const Text('Login', style: TextStyle(color: Colors.white)),
-              ),
+              child: Consumer<LoginProvider>(
+                  builder: (context, LoginProvider signUpProvider, child) {
+                if (signUpProvider.loginState == StateEnum.loading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                return TextButton(
+                  onPressed: () {
+                    // call login function
+                    //
+                    context.read<LoginProvider>().login(
+                          context: context,
+                          email: emailEditingController.text,
+                          password: passwordEditingController.text,
+                        );
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text('Login',
+                      style: TextStyle(color: Colors.white)),
+                );
+              }),
             ),
+            const SizedBox(height: 10),
             InkWell(
               onTap: () {
                 Navigator.of(context).pushReplacement(
@@ -76,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 30),
           ],
         ),
       ),
