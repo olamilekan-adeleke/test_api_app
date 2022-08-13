@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
 
@@ -66,6 +68,23 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 child:
                     const Text('Login', style: TextStyle(color: Colors.white)),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                );
+              },
+              child: Text(
+                'Already a user? login',
+                style: TextStyle(
+                  color: Colors.blue.withOpacity(0.9),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
             const SizedBox(height: 10),

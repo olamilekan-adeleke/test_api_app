@@ -10,8 +10,8 @@ import '../enums.dart';
 class LoginProvider extends ChangeNotifier {
   static final AuthRepository _authRepository = AuthRepository();
 
-  StateEnum _state = StateEnum.unknown;
-  StateEnum get state => _state;
+  StateEnum _loginState = StateEnum.unknown;
+  StateEnum get loginState => _loginState;
 
   Future<void> login({
     required BuildContext context,
@@ -19,7 +19,7 @@ class LoginProvider extends ChangeNotifier {
     required String password,
   }) async {
     try {
-      _state = StateEnum.loading;
+      _loginState = StateEnum.loading;
       notifyListeners();
 
       final Map<String, dynamic> result = await _authRepository.login(
@@ -29,7 +29,7 @@ class LoginProvider extends ChangeNotifier {
 
       // check result
 
-      _state = StateEnum.success;
+      _loginState = StateEnum.success;
 
       notifyListeners();
 
@@ -44,7 +44,7 @@ class LoginProvider extends ChangeNotifier {
       log(e.toString());
       log(s.toString());
 
-      _state = StateEnum.error;
+      _loginState = StateEnum.error;
 
       notifyListeners();
 

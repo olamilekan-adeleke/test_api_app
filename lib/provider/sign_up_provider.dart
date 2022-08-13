@@ -10,8 +10,8 @@ import '../enums.dart';
 class SignUpProvider extends ChangeNotifier {
   static final AuthRepository _authRepository = AuthRepository();
 
-  StateEnum _state = StateEnum.unknown;
-  StateEnum get state => _state;
+  StateEnum _signUpState = StateEnum.unknown;
+  StateEnum get signUpstate => _signUpState;
 
   Future<void> signUp({
     required BuildContext context,
@@ -22,7 +22,7 @@ class SignUpProvider extends ChangeNotifier {
     required String username,
   }) async {
     try {
-      _state = StateEnum.loading;
+      _signUpState = StateEnum.loading;
       notifyListeners();
 
       final Map<String, dynamic> result = await _authRepository.signUpUser(
@@ -35,7 +35,7 @@ class SignUpProvider extends ChangeNotifier {
 
       //TODO: check result
 
-      _state = StateEnum.success;
+      _signUpState = StateEnum.success;
 
       notifyListeners();
 
@@ -48,7 +48,7 @@ class SignUpProvider extends ChangeNotifier {
       log(e.toString());
       log(s.toString());
 
-      _state = StateEnum.error;
+      _signUpState = StateEnum.error;
 
       notifyListeners();
 
