@@ -5,7 +5,10 @@ import 'package:http/http.dart' as http;
 class AuthRepository {
   static const String _baseUrl = 'localhost:5000';
 
-  Future<Map<String, dynamic>> login(String email, String password) async {
+  Future<Map<String, dynamic>> login({
+    required String email,
+    required String password,
+  }) async {
     try {
       final Map<String, String> header = <String, String>{
         'Content-Type': 'application/json',

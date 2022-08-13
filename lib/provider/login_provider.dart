@@ -7,33 +7,27 @@ import 'package:test_api_app/repository/auth_repository.dart';
 
 import '../enums.dart';
 
-class SignUpProvider extends ChangeNotifier {
+class LoginProvider extends ChangeNotifier {
   static final AuthRepository _authRepository = AuthRepository();
 
   StateEnum _state = StateEnum.unknown;
   StateEnum get state => _state;
 
-  Future<void> signUp({
+  Future<void> login({
     required BuildContext context,
     required String email,
     required String password,
-    required String fullName,
-    required String phone,
-    required String username,
   }) async {
     try {
       _state = StateEnum.loading;
       notifyListeners();
 
-      final Map<String, dynamic> result = await _authRepository.signUpUser(
+      final Map<String, dynamic> result = await _authRepository.login(
         email: email,
         password: password,
-        fullName: fullName,
-        phone: phone,
-        username: username,
       );
 
-      //TODO: check result
+      // check result
 
       _state = StateEnum.success;
 
@@ -41,9 +35,11 @@ class SignUpProvider extends ChangeNotifier {
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('User Registered Successfully!'),
+          content: Text('User Login Successfully!'),
         ),
       );
+
+      // Navigate User to home page
     } catch (e, s) {
       log(e.toString());
       log(s.toString());
