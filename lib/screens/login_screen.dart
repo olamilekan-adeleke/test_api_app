@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/login_provider.dart';
 import 'sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -41,7 +43,15 @@ class LoginScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 40,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  // call login function
+                  //
+                  context.read<LoginProvider>().login(
+                        context: context,
+                        email: emailEditingController.text,
+                        password: passwordEditingController.text,
+                      );
+                },
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.blue,
                 ),

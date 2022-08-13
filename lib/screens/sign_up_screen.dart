@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../provider/sign_up_provider.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -61,13 +63,29 @@ class SignUpScreen extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 40,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                ),
-                child:
-                    const Text('Login', style: TextStyle(color: Colors.white)),
+              child: Consumer<SignUpProvider>(
+                builder: (context, SignUpProvider signUpProvider, child) {
+                  return TextButton(
+                    onPressed: () {
+                      // call sign up functions
+                      context.read<SignUpProvider>().signUp(
+                            context: context,
+                            email: emailEditingController.text,
+                            password: passwordEditingController.text,
+                            fullName: fullNameEditingController.text,
+                            phone: phoneEditingController.text,
+                            username: usernameEditingController.text,
+                          );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                },
               ),
             ),
             InkWell(
