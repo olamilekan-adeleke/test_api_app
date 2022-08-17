@@ -28,6 +28,7 @@ class LoginProvider extends ChangeNotifier {
       );
 
       // check result
+      log(result.toString());
 
       _loginState = StateEnum.success;
 
