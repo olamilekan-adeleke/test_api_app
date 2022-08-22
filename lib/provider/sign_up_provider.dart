@@ -8,7 +8,9 @@ import 'package:test_api_app/repository/auth_repository.dart';
 import '../enums.dart';
 
 class SignUpProvider extends ChangeNotifier {
-  static final AuthRepository _authRepository = AuthRepository();
+  SignUpProvider(this.authRepository);
+
+  final AuthRepository authRepository;
 
   StateEnum _signUpState = StateEnum.unknown;
   StateEnum get signUpstate => _signUpState;
@@ -25,7 +27,7 @@ class SignUpProvider extends ChangeNotifier {
       _signUpState = StateEnum.loading;
       notifyListeners();
 
-      final Map<String, dynamic> result = await _authRepository.signUpUser(
+      final Map<String, dynamic> result = await authRepository.signUpUser(
         email: email,
         password: password,
         fullName: fullName,

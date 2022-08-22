@@ -8,7 +8,9 @@ import 'package:test_api_app/repository/auth_repository.dart';
 import '../enums.dart';
 
 class LoginProvider extends ChangeNotifier {
-  static final AuthRepository _authRepository = AuthRepository();
+  LoginProvider(this.authRepository);
+
+  final AuthRepository authRepository;
 
   StateEnum _loginState = StateEnum.unknown;
   StateEnum get loginState => _loginState;
@@ -22,7 +24,7 @@ class LoginProvider extends ChangeNotifier {
       _loginState = StateEnum.loading;
       notifyListeners();
 
-      final Map<String, dynamic> result = await _authRepository.login(
+      final Map<String, dynamic> result = await authRepository.login(
         email: email,
         password: password,
       );

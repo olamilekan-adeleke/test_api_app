@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:test_api_app/bloc/bloc_observer.dart';
 import 'package:test_api_app/provider/login_provider.dart';
+import 'package:test_api_app/repository/auth_repository.dart';
 
 import 'provider/sign_up_provider.dart';
 import 'screens/login_screen.dart';
@@ -20,14 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<LoginProvider>(
-          create: (context) => LoginProvider(),
-        ),
-        ChangeNotifierProvider<SignUpProvider>(
-          create: (context) => SignUpProvider(),
-        ),
-      ],
+      providers: blocList(),
       child: MaterialApp(
         title: 'API Test',
         theme: ThemeData(
@@ -37,4 +31,15 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+List<ChangeNotifierProvider> blocList() {
+  return [
+    ChangeNotifierProvider<LoginProvider>(
+      create: (context) => LoginProvider(AuthRepository()),
+    ),
+    ChangeNotifierProvider<SignUpProvider>(
+      create: (context) => SignUpProvider(AuthRepository()),
+    ),
+  ];
 }
