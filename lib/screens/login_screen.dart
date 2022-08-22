@@ -33,6 +33,7 @@ class LoginScreen extends StatelessWidget {
             formWidget(
               hintText: 'Enter Email',
               controller: emailEditingController,
+              
             ),
             const SizedBox(height: 10),
             formWidget(
