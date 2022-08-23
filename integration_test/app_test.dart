@@ -4,7 +4,6 @@ import 'package:integration_test/integration_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 
-import 'package:test_api_app/main.dart' as app;
 import 'package:test_api_app/provider/login_provider.dart';
 import 'package:test_api_app/provider/sign_up_provider.dart';
 import 'package:test_api_app/repository/auth_repository.dart';
@@ -13,11 +12,7 @@ import 'package:test_api_app/screens/login_screen.dart';
 class MockAuthRepository extends Mock implements AuthRepository {}
 
 void main() {
-  late MockAuthRepository mockAuthRepository;
-
-  setUp(() {
-    mockAuthRepository = MockAuthRepository();
-  });
+  final MockAuthRepository mockAuthRepository = MockAuthRepository();
 
   void mockAuthRepositoryAction() {
     when(
