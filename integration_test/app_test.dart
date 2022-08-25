@@ -9,17 +9,10 @@ import 'package:test_api_app/provider/sign_up_provider.dart';
 import 'package:test_api_app/repository/auth_repository.dart';
 import 'package:test_api_app/screens/login_screen.dart';
 
-class MockAuthRepository extends Mock implements AuthRepository {}
-
-void main() {
-  final MockAuthRepository mockAuthRepository = MockAuthRepository();
-
-  void mockAuthRepositoryAction() {
+class MockAuthRepository extends Mock implements AuthRepository {
+  MockAuthRepository() {
     when(
-      () => mockAuthRepository.login(
-        email: 'ola@gmail.com',
-        password: 'Test123456',
-      ),
+      () => login(email: 'ola@gmail.com', password: 'Test123456'),
     ).thenAnswer(
       (_) async {
         await Future.delayed(const Duration(seconds: 2));
@@ -29,13 +22,8 @@ void main() {
     );
 
     when(
-      () => mockAuthRepository.signUpUser(
-        email: '',
-        password: '',
-        fullName: '',
-        phone: '',
-        username: '',
-      ),
+      () => signUpUser(
+          email: '', password: '', fullName: '', phone: '', username: ''),
     ).thenAnswer(
       (_) async {
         await Future.delayed(const Duration(seconds: 2));
@@ -44,6 +32,10 @@ void main() {
       },
     );
   }
+}
+
+void main() {
+  final MockAuthRepository mockAuthRepository = MockAuthRepository();
 
   List<ChangeNotifierProvider> blocList() {
     return [
@@ -71,8 +63,6 @@ void main() {
 
   group('App Test', () {
     IntegrationTestWidgetsFlutterBinding.ensureInitialized();
-
-    mockAuthRepositoryAction();
 
     final emailForm = find.byType(TextFormField).first;
     final passwordForm = find.byType(TextFormField).last;
