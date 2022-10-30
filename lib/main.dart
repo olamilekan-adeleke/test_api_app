@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(text),
+            NewWidget(text: text),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -123,6 +123,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+}
+
+class NewWidget extends StatelessWidget {
+  const NewWidget({Key? key, required this.text}) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text);
   }
 }
 
