@@ -1,0 +1,56 @@
+{
+  "status": 200,
+  "message": "Events retrieved successfully",
+  "data": [
+    {
+      "id": 47,
+      "name": "asdasd",
+      "category": "entertainment-and-festival",
+      "date": "2022-10-14",
+      "time": "02:09",
+      "attendanceType": "physical",
+      "address": "asdeas",
+      "currency": null,
+      "virtualUrl": null,
+      "description": "asdasdas",
+      "ticketImage": "https://changera-stg-docs.ams3.digitaloceanspaces.com//crownLogo.png.png",
+      "audienceRestriction": null,
+      "eventTermsConditions": null,
+      "tags": null,
+      "optionalImage": [],
+      "published": true,
+      "status": "pending",
+      "serviceId": "changera-business-EVENT-Test-1423",
+      "createdAt": "2022-10-27T10:10:11.189Z",
+      "updatedAt": "2022-10-27T12:37:24.440Z",
+      "ticket": [
+        {
+          "id": 49,
+          "type": "paid",
+          "category": "Premium",
+          "description": "afserasa asdeas",
+          "perks": "swags, free",
+          "price": 100,
+          "ticketQuantity": 20,
+          "soldQuantity": 0,
+          "sellStartDate": "2022-10-22",
+          "sellEndDate": "2022-10-19",
+          "serviceId": "changera-business-TICKET-Test-8204",
+          "createdAt": "2022-10-27T10:11:12.751Z",
+          "updatedAt": "2022-10-27T10:11:12.751Z"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "hasPrevious": false,
+    "prevPage": 0,
+    "hasNext": false,
+    "next": 2,
+    "currentPage": 1,
+    "pageSize": 10,
+    "lastPage": 1,
+    "total": 1
+  },
+  "state": "success"
+}
