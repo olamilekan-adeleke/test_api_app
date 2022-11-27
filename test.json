@@ -1,56 +1,53 @@
 {
   "status": 200,
-  "message": "Events retrieved successfully",
-  "data": [
-    {
-      "id": 47,
-      "name": "asdasd",
-      "category": "entertainment-and-festival",
-      "date": "2022-10-14",
-      "time": "02:09",
+  "message": "Tickets retrieved successfully",
+  "data": {
+    "message": "Event Successfully Gotten",
+    "status": 200,
+    "state": "success",
+    "data": {
+      "id": 98,
+      "name": "Breakfast at tiffany's",
+      "category": "entertainment",
+      "date": "2022-11-19",
+      "time": "16:00",
       "attendanceType": "physical",
-      "address": "asdeas",
-      "currency": null,
+      "address": "Nowe Garden",
+      "currency": "gbp",
       "virtualUrl": null,
-      "description": "asdasdas",
-      "ticketImage": "https://changera-stg-docs.ams3.digitaloceanspaces.com//crownLogo.png.png",
-      "audienceRestriction": null,
-      "eventTermsConditions": null,
-      "tags": null,
-      "optionalImage": [],
+      "description": "A picnic event with breakfast at tiffany theme",
+      "ticketImage": "https://changera-stg-docs.ams3.digitaloceanspaces.com/flier10.jpg.jpeg",
+      "audienceRestriction": ["18"],
+      "eventTermsConditions": "\n",
+      "tags": "foodie, gifts, games",
+      "optionalImage": [
+        "https://changera-stg-docs.ams3.digitaloceanspaces.com/flier.png.png"
+      ],
       "published": true,
+      "engagement": 2,
       "status": "pending",
-      "serviceId": "changera-business-EVENT-Test-1423",
-      "createdAt": "2022-10-27T10:10:11.189Z",
-      "updatedAt": "2022-10-27T12:37:24.440Z",
+      "serviceId": "changera-business-event-test-6820",
+      "createdAt": "2022-11-04T15:10:04.906Z",
+      "updatedAt": "2022-11-06T07:33:58.000Z",
       "ticket": [
         {
-          "id": 49,
+          "id": 180,
           "type": "paid",
-          "category": "Premium",
-          "description": "afserasa asdeas",
-          "perks": "swags, free",
-          "price": 100,
-          "ticketQuantity": 20,
+          "category": "Standard",
+          "description": "Admits only one",
+          "perks": "Free give away gifts",
+          "price": 10,
+          "ticketQuantity": 40,
           "soldQuantity": 0,
-          "sellStartDate": "2022-10-22",
-          "sellEndDate": "2022-10-19",
-          "serviceId": "changera-business-TICKET-Test-8204",
-          "createdAt": "2022-10-27T10:11:12.751Z",
-          "updatedAt": "2022-10-27T10:11:12.751Z"
+          "sellStartDate": "2022-11-11",
+          "sellEndDate": "2022-11-18",
+          "serviceId": "changera-business-TICKET-test-8467",
+          "createdAt": "2022-11-04T15:12:24.552Z",
+          "updatedAt": "2022-11-04T15:12:24.552Z"
         }
       ]
     }
-  ],
-  "pagination": {
-    "hasPrevious": false,
-    "prevPage": 0,
-    "hasNext": false,
-    "next": 2,
-    "currentPage": 1,
-    "pageSize": 10,
-    "lastPage": 1,
-    "total": 1
   },
   "state": "success"
 }
+

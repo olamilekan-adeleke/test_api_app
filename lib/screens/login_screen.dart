@@ -5,13 +5,26 @@ import '../enums.dart';
 import '../provider/login_provider.dart';
 import 'sign_up_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   static final TextEditingController emailEditingController =
       TextEditingController();
   static final TextEditingController passwordEditingController =
       TextEditingController();
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // Pro;;;;;;;;
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +45,12 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 40),
             formWidget(
               hintText: 'Enter Email',
-              controller: emailEditingController,
-              
+              controller: LoginScreen.emailEditingController,
             ),
             const SizedBox(height: 10),
             formWidget(
               hintText: 'Enter Password',
-              controller: passwordEditingController,
+              controller: LoginScreen.passwordEditingController,
             ),
             const Spacer(),
             SizedBox(
@@ -56,8 +68,8 @@ class LoginScreen extends StatelessWidget {
                     //
                     context.read<LoginProvider>().login(
                           context: context,
-                          email: emailEditingController.text,
-                          password: passwordEditingController.text,
+                          email: LoginScreen.emailEditingController.text,
+                          password: LoginScreen.passwordEditingController.text,
                         );
                   },
                   style: TextButton.styleFrom(
