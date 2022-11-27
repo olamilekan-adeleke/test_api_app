@@ -57,6 +57,7 @@ class LoginProvider extends ChangeNotifier {
           backgroundColor: Colors.red,
           content: Text(e.toString()),
         ),
+        
       );
     }
   }
